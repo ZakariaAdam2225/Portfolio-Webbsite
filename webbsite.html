@@ -20,25 +20,20 @@
     
      <i class="bx bx-menu" id="menu-icon"></i> 
      
-     <nav class="navbar">
+     <nav class="navbar" id="navbar">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
-
-
      </nav> 
-
    </header>
+
     <section class="home" id="home">
        <div class="home-content">
-        <h1>Hi,it's<span>Zakaria</span></h1>
-        <h3>I'm a<span>Fullstack Developer student</span></h3>
+        <h1>Hi, it's <span>Zakaria</span></h1>
+        <h3>I'm a <span>Fullstack Developer student</span></h3>
         <p>I am a passionate full-stack developer,
          currently honing my skills at Företagsuniversitetet.
-         
-        
-
          <div class="social-icons">
             <a href="#">
                 <i class="bx bxl-github"></i>
@@ -52,20 +47,15 @@
               <a href="#">
                 <i class="bx bxl-twitter"></i>
               </a>
-
-              
-            
          </div>
          <div class="btn-group">
            <a href="#" class="btn">Hire</a>
            <a href="#contact" class="btn">Contact</a>
          </div>
-
        </div>
        <div class="home-img">
         <img src="Downloads/image1.jpeg" alt="">
        </div>
-
     </section>
 
     <section class="about" id="about">
@@ -73,7 +63,7 @@
             <img src="Downloads/image1.jpeg" alt="">
         </div>
         <div class="about-content"> 
-            <h2>About<span>Me</span></h2> 
+            <h2>About <span>Me</span></h2> 
             <p>My journey in web development has led me to dive deep into HTML, CSS, and JavaScript,
              where I've gained invaluable experience through hands-on projects. 
              Eager to expand my expertise, I am actively delving into the realms of React and Angular frameworks. 
@@ -83,8 +73,6 @@
              pushing the boundaries of my knowledge and creativity.</p>
             <a href="#" class="btn">Read More</a>
         </div>
-        
-    
     </section>
 
     <section class="services" id="services">
@@ -122,28 +110,28 @@
             </div>
         </div>
     </section>
-    <section class="contact"  id="contact">
+
+    <section class="contact" id="contact">
         <h2 class="heading">Contact<span>Me</span></h2>
-       <form action="" class="action">
-       
+       <form action="" class="action" id="contact-form">
         <div class="input-group">
          <div class="input-box">
-           <input type="text" placeholder="Full Name">
-           <input type="email" placeholder="Email">
+           <input type="text" placeholder="Full Name" id="name">
+           <input type="email" placeholder="Email" id="email">
          </div>
          <div class="input-box">
-           <input type="number" placeholder="Phone Number">
-           <input type="text" placeholder="Subject">
+           <input type="number" placeholder="Phone Number" id="phone">
+           <input type="text" placeholder="Subject" id="subject">
          </div>
         </div>
         <div class="input-group-2">
-            <textarea name="" id="" cols="30"
-            rows="10" placeholder="Your Message"></textarea>
+            <textarea name="" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
             <input type="submit" value="Send Message" class="btn">
         </div>
        </form>
     </section>
-     <footer class="footer">
+
+    <footer class="footer">
         <div class="social-icons">
             <a href="#">
                 <i class="bx bxl-github"></i>
@@ -161,10 +149,9 @@
           <ul class="list">
             <li>
               <a href="#">FAQ</a> 
-           
             </li>
             <li>
-                <a href="#Services">Services</a> 
+                <a href="#services">Services</a> 
               </li>
               <li>
                 <a href="#about">About Me</a> 
@@ -176,9 +163,57 @@
            <p class="copyright">
             &copy;Zakaria Adam | All Rights Reserved
            </p>
-      
-            </footer>
-      
-    <script src="script.js"></script>
+    </footer>
+
+    <button id="scrollToTopBtn" class="btn">Top</button>
+
+    <script>
+      // Toggle Navbar
+      const menuIcon = document.getElementById('menu-icon');
+      const navbar = document.getElementById('navbar');
+
+      menuIcon.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+      });
+
+      // Form Validation
+      const form = document.getElementById('contact-form');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        if (!name || !email || !phone || !subject || !message) {
+          alert('Please fill in all fields');
+          return;
+        }
+
+        alert('Form submitted successfully');
+        form.reset();
+      });
+
+      // Scroll to Top Button
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+          scrollToTopBtn.style.display = 'block';
+        } else {
+          scrollToTopBtn.style.display = 'none';
+        }
+      });
+
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
   </body>
 </html>
