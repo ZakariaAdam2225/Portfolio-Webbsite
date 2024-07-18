@@ -401,3 +401,28 @@ section{
 .contact form {
     flex-direction: column; 
 }
+/* Toggle Navbar */
+.navbar.active {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Scroll to Top Button */
+  #scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  #scrollToTopBtn:hover {
+    background-color: #555;
+  }
+  
